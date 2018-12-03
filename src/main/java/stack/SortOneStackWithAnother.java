@@ -1,7 +1,10 @@
-package stackAndArray;
+package stack;
 
 import java.util.Stack;
 
+/**
+ * @author duanyiheng
+ */
 public class SortOneStackWithAnother {
 
     public static void main(String[] args) {
