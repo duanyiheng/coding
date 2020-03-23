@@ -47,4 +47,39 @@ public class FindingDuplicatesInArray {
         throw new IllegalArgumentException("The input array does contain even one pair of duplicate.");
     }
 
+    public int findDuplicatesInArray3(int[] input) {
+        if (null == input || input.length < MINIMUM_LENGTH_REQUIRED) {
+            throw new IllegalArgumentException("The input array does not exist or contains less than 2 elements.");
+        }
+        int length = input.length;
+        int start = 0;
+        int end = length - 1;
+
+        while (start <= end) {
+            if (start == end) {
+                return start;
+            }
+            int mid = (start + end + 1) / 2;
+            int hit = countNumOfHitsByRange(input, start, mid);
+            if (hit > mid - start + 1) {
+                end = mid;
+            } else if (hit == mid - start + 1) {
+
+            } else {
+                start = mid + 1;
+            }
+        }
+
+        throw new IllegalArgumentException("The input array does contain even one pair of duplicate.");
+    }
+
+    private int countNumOfHitsByRange(int[] input, int start, int end) {
+        int res = 0;
+        for (var value : input) {
+            if (value >= start && value <= end) {
+                res++;
+            }
+        }
+        return res;
+    }
 }
