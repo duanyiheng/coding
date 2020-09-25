@@ -42,7 +42,6 @@ public class ThreeSum {
             if (nums != null && nums.length > 2) {
                 Arrays.sort(nums);
                 int n = nums.length;
-                List<Integer> val;
                 for (int i = 0; i < n - 2; i++) {
                     if (i > 0 && nums[i - 1] == nums[i]) {
                         continue;
@@ -62,11 +61,7 @@ public class ThreeSum {
                         } else if (sum < 0) {
                             j++;
                         } else {
-                            val = new ArrayList<>();
-                            val.add(nums[i]);
-                            val.add(nums[j]);
-                            val.add(nums[k]);
-                            res.add(val);
+                            res.add(Arrays.asList(nums[i], nums[j], nums[k]));
                             while (j < k && nums[j] == nums[j + 1]) {
                                 j++;
                             }
