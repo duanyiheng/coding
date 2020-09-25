@@ -46,7 +46,6 @@ public class ThreeSum {
                 int n = nums.length;
                 List<Integer> val;
                 int lastIstValue = 0;
-                Set<List<Integer>> set = new HashSet<>();
                 for (int i = 0; i < n - 2; i++) {
                     if (i > 0 && lastIstValue == nums[i]) {
                         continue;
@@ -70,7 +69,7 @@ public class ThreeSum {
                             val.add(nums[i]);
                             val.add(nums[j]);
                             val.add(nums[k]);
-                            set.add(val);
+                            res.add(val);
                             while (j < k && nums[j] == nums[j + 1]) {
                                 j++;
                             }
@@ -83,7 +82,6 @@ public class ThreeSum {
                     }
                     lastIstValue = nums[i];
                 }
-                res = new ArrayList<>(set);
             }
             return res;
         }
