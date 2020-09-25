@@ -31,59 +31,6 @@ public class ThreeSumClosest {
         System.out.println(solution.threeSumClosest(new int[]{1, 1, 1, 0}, 100));
     }
 
-/*    public int threeSumClosest(int[] nums, int target) {
-        int n = nums.length;
-        if (n == 3) {
-            return nums[0] + nums[1] + nums[2];
-        } else {
-            Arrays.sort(nums);
-            int lastIthValue = 0;
-            int gap = nums[0] + nums[1] + nums[n - 1] - target;
-            int preDiff = nums[0] + nums[1] + nums[n - 1] - target;
-            int diff = 0;
-            for (int i = 0; i < n - 2; i++) {
-                if (i > 0 && nums[i] == lastIthValue) {
-                    continue;
-                }
-                int j = i + 1;
-                int k = n - 1;
-                while (j < k) {
-                    if (diff != 0) {
-                        preDiff = diff;
-                    }
-                    diff = nums[i] + nums[j] + nums[k] - target;
-                    if (j == i + 1 && k == n - 1) {
-                        gap = updateGap(gap, diff, preDiff);
-                    }
-                    if (diff == 0) {
-                        return target;
-                    } else if (diff > 0) {
-                        if (preDiff > 0) {
-                            k--;
-                        }
-                        if (preDiff <= 0) {
-                            gap = updateGap(gap, diff, preDiff);
-                        }
-                    } else {
-                        if (preDiff >= 0) {
-                            gap = updateGap(gap, diff, preDiff);
-                        }
-                        if (preDiff < 0) {
-                            j++;
-                        }
-                    }
-                }
-                lastIthValue = nums[i];
-            }
-            return target + gap;
-        }
-    }*/
-
-/*    private int updateGap(int gap, int diff, int preDiff) {
-        int smallerDiff = Math.abs(diff) < Math.abs(preDiff) ? diff : preDiff;
-        return Math.abs(smallerDiff) < Math.abs(gap) ? smallerDiff : gap;
-    }*/
-
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int threeSumClosest(int[] nums, int target) {
@@ -92,11 +39,20 @@ public class ThreeSumClosest {
                 return nums[0] + nums[1] + nums[2];
             } else {
                 Arrays.sort(nums);
-                int lastIthValue = 0;
                 int gap = nums[0] + nums[1] + nums[n - 1] - target;
                 int diff;
                 for (int i = 0; i < n - 2; i++) {
-                    if (i > 0 && nums[i] == lastIthValue) {
+                    if (i > 0 && nums[i] == nums[i - 1]) {
+                        continue;
+                    }
+                    int min = nums[i] + nums[i + 1] + nums[i + 2];
+                    if (min > target) {
+                        gap = Math.abs(min - target) < Math.abs(gap) ? min - target : gap;
+                        continue;
+                    }
+                    int max = nums[i] + nums[n - 2] + nums[n - 1];
+                    if (max < target) {
+                        gap = Math.abs(max - target) < Math.abs(gap) ? max - target : gap;
                         continue;
                     }
                     int j = i + 1;
@@ -108,11 +64,16 @@ public class ThreeSumClosest {
                             return target;
                         } else if (diff > 0) {
                             k--;
+                            while (j < k && nums[k] == nums[k + 1]) {
+                                k--;
+                            }
                         } else {
                             j++;
+                            while (j < k && nums[j] == nums[j - 1]) {
+                                j++;
+                            }
                         }
                     }
-                    lastIthValue = nums[i];
                 }
                 return target + gap;
             }

@@ -43,9 +43,8 @@ public class ThreeSum {
                 Arrays.sort(nums);
                 int n = nums.length;
                 List<Integer> val;
-                int lastIstValue = 0;
                 for (int i = 0; i < n - 2; i++) {
-                    if (i > 0 && lastIstValue == nums[i]) {
+                    if (i > 0 && nums[i - 1] == nums[i]) {
                         continue;
                     }
                     if (nums[i] + nums[i + 1] + nums[i + 2] > 0) {
@@ -78,7 +77,6 @@ public class ThreeSum {
                             k--;
                         }
                     }
-                    lastIstValue = nums[i];
                 }
             }
             return res;
