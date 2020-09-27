@@ -81,7 +81,7 @@ public class FindingDuplicatesInArray {
 
     private int countNumOfHitsByRange(int[] input, int start, int end) {
         int res = 0;
-        for (var value : input) {
+        for (int value : input) {
             if (value >= start && value <= end) {
                 res++;
             }
