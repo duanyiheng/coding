@@ -1,4 +1,4 @@
-package sort;
+package sort.method;
 
 public abstract class Sort<T extends Comparable<T>> {
     public abstract T[] sort(T[] nums);

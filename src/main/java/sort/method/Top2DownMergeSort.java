@@ -1,4 +1,4 @@
-package sort;
+package sort.method;
 
 public class Top2DownMergeSort<T extends Comparable<T>> extends MergeSort<T> {
     @Override

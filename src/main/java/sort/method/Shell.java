@@ -1,4 +1,4 @@
-package sort;
+package sort.method;
 
 public class Shell<T extends Comparable<T>> extends Sort<T> {
 

@@ -1,4 +1,4 @@
-package sort;
+package sort.method;
 
 public abstract class MergeSort<T extends Comparable<T>> extends Sort<T> {
     protected T[] aux;

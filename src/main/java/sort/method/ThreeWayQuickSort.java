@@ -1,4 +1,4 @@
-package sort;
+package sort.method;
 
 /**
  * It could be quicker than quick sort when there are many duplicated records.
