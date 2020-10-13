@@ -1,4 +1,4 @@
-package sort.tester;
+package sort.testsuite;
 
 import java.util.Random;
 

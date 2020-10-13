@@ -5,7 +5,7 @@ import sort.method.QuickSort;
 import sort.method.Shell;
 import sort.method.ThreeWayQuickSort;
 import sort.method.Top2DownMergeSort;
-import sort.tester.DoubleTester;
+import sort.testsuite.DoubleTester;
 
 public class Driver {
     public static void main(String[] args) {

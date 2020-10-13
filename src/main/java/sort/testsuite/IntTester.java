@@ -1,4 +1,4 @@
-package sort.tester;
+package sort.testsuite;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package sort.tester;
+package sort.testsuite;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

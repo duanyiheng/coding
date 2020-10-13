@@ -23,12 +23,16 @@ public class QuickSort<T extends Comparable<T>> extends Sort<T> {
     }
 
     private int partition(T[] nums, int l, int h) {
-        int i = l;
-        int j = h + 1;
+        int i = l + 1;
+        int j = h;
         T v = nums[l];
         while (true) {
-            while (less(nums[++i], v) && i != h) ;
-            while (less(v, nums[--j]) && j != l) ;
+            while (less(nums[i], v) && i != h) {
+                i++;
+            }
+            while (less(v, nums[j]) && j != l) {
+                j--;
+            }
             if (i >= j) {
                 break;
             }
