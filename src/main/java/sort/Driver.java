@@ -1,6 +1,7 @@
 package sort;
 
 import sort.method.Down2TopMergeSort;
+import sort.method.HeapSort;
 import sort.method.QuickSort;
 import sort.method.Shell;
 import sort.method.ThreeWayQuickSort;
@@ -15,10 +16,12 @@ public class Driver {
         Down2TopMergeSort<Double> down2TopMergeSort = new Down2TopMergeSort<>();
         QuickSort<Double> quickSort = new QuickSort<>();
         ThreeWayQuickSort<Double> threeWayQuickSort = new ThreeWayQuickSort<>();
+        HeapSort<Double> heapSort = new HeapSort<>();
         doubleTester.verify(shell::sort, shell.getSortMethodName());
         doubleTester.verify(top2DownMergeSort::sort, top2DownMergeSort.getSortMethodName());
         doubleTester.verify(down2TopMergeSort::sort, down2TopMergeSort.getSortMethodName());
         doubleTester.verify(quickSort::sort, quickSort.getSortMethodName());
         doubleTester.verify(threeWayQuickSort::sort, threeWayQuickSort.getSortMethodName());
+        doubleTester.verify(heapSort::sort, heapSort.getSortMethodName());
     }
 }
