@@ -58,7 +58,8 @@ public class NonOverlappingIntervals {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int eraseOverlapIntervals(int[][] intervals) {
-            if (intervals.length == 0) {
+            int l = intervals.length;
+            if (l == 0) {
                 return 0;
             }
             // Using Lambda(Comparator.comparingInt(o -> o[1]))to build comparator makes it slower.
@@ -68,16 +69,16 @@ public class NonOverlappingIntervals {
                     return (o1[1] < o2[1]) ? -1 : (o1[1] == o2[1] ? 0 : 1);
                 }
             });
-            int count = 1;
+            int cnt = 1;
             int end = intervals[0][1];
-            for (int i = 1; i < intervals.length; i++) {
+            for (int i = 1; i < l; i++) {
                 if (intervals[i][0] < end) {
                     continue;
                 }
                 end = intervals[i][1];
-                count++;
+                cnt++;
             }
-            return intervals.length - count;
+            return l - cnt;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
